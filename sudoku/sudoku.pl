@@ -66,3 +66,15 @@ valid_rows(Grid) :-
 row(Row, Grid) :-
     member(Row, Grid).
 
+column(ColIndex, Grid, Column) :-
+    grid_size(Size),
+    is_in_bounds(ColIndex, Size),
+    findall(
+        Cell,
+        (
+            row(Row, Grid),
+            nth1(ColIndex, Row, Cell)
+        ),
+        Column
+    ).
+
