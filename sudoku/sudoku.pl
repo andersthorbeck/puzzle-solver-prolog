@@ -55,10 +55,14 @@ valid_row(Row) :-
         )
     ),
     \+ has_duplicates(Row).
-    
+
 valid_rows(Grid) :-
     valid_grid_dimensions(Grid),
     forall(
         member(Row, Grid),
         valid_row(Row)
     ).
+
+row(Row, Grid) :-
+    member(Row, Grid).
+
