@@ -13,14 +13,17 @@ grid_box_height(H) :- minigrid_box_height(H).
 
 grid(G) :- minigrid(G).
 
-valid_grid_dimensions(Grid) :-
+grid_size(Size) :-
     grid_box_width(Width),
     grid_box_height(Height),
-    Dimension is Width*Height,
+    Size is Width*Height.
+
+valid_grid_dimensions(Grid) :-
+    grid_size(Size),
     grid(Grid),
-    length(Grid, Dimension),
+    length(Grid, Size),
     forall(
         member(Row, Grid),
-        length(Row, Dimension)
+        length(Row, Size)
     ).
 
