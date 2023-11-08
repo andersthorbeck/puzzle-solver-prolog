@@ -1,2 +1,2 @@
-# sudoku-solver-prolog
-A Sudoku solver written in Prolog
+# puzzle-solver-prolog
+A puzzle solver written in Prolog.
