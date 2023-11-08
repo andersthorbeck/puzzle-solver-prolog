@@ -33,3 +33,24 @@ valid_grid_dimensions(Grid) :-
         length(Row, Size)
     ).
 
+has_duplicates([Head | Tail]) :- member(Head, Tail), !; has_duplicates(Tail).
+
+valid_row(Row) :-
+    grid_size(Size),
+    /* row length checked in valid_grid_dimensions */
+    forall(
+        member(Cell, Row),
+        (
+            integer(Cell),
+            1 =< Cell,
+            Cell =< Size
+        )
+    ),
+    \+ has_duplicates(Row).
+    
+valid_rows(Grid) :-
+    valid_grid_dimensions(Grid),
+    forall(
+        member(Row, Grid),
+        valid_row(Row)
+    ).
