@@ -1,3 +1,7 @@
+/* Imports */
+
+:- use_module(library(clpfd)).  /* Constraint Logic Programming over Finite Domains */
+
 /* Potential input grids */
 
 minigrid_box_width(2).
@@ -34,6 +38,10 @@ valid_grid_dimensions(Grid) :-
     ).
 
 has_duplicates([Head | Tail]) :- member(Head, Tail), !; has_duplicates(Tail).
+
+/* Can be used both to check cell _values_, and also 1-indexed row/column indices. */
+is_in_bounds(N, Size) :-
+    N in 1..Size.
 
 valid_row(Row) :-
     grid_size(Size),
