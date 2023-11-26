@@ -5,6 +5,10 @@ A puzzle solver written in Prolog.
 
 On Ubuntu Linux, [install SWI-Prolog](https://www.swi-prolog.org/build/PPA.html)
 using a Personal Package Archive (PPA).
+On MacOS, install SWI-Prolog using Brew.
+
+    $ brew install swi-prolog
+
 See the [quickstart documentation](https://www.swi-prolog.org/pldoc/man?section=quickstart)
 for how to load prolog files with SWI-Prolog.
 
